@@ -34,6 +34,11 @@ namespace Namespace
             return Check(key) && !prev.IsKeyDown(key);
         }
 
+        public static bool CheckReleased(Keys key)
+        {
+            return !Check(key) && prev.IsKeyDown(key);
+        }
+
         public static KeyState State(Keys key)
         {
             return current[key];

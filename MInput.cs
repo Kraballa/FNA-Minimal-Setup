@@ -30,24 +30,34 @@ namespace Namespace
             State = Mouse.GetState();
         }
 
-        public static bool LeftClick()
+        public static bool Left()
         {
             return State.LeftButton == ButtonState.Pressed;
         }
 
         public static bool LeftPressed()
         {
-            return LeftClick() && Previous.LeftButton == ButtonState.Released;
+            return Left() && Previous.LeftButton == ButtonState.Released;
         }
 
-        public static bool RightClick()
+        public static bool LeftReleased()
+        {
+            return !Left() && Previous.LeftButton == ButtonState.Pressed;
+        }
+
+        public static bool Right()
         {
             return State.RightButton == ButtonState.Pressed;
         }
 
         public static bool RightPressed()
         {
-            return RightClick() && Previous.RightButton == ButtonState.Released;
+            return Right() && Previous.RightButton == ButtonState.Released;
+        }
+
+        public static bool RightReleased()
+        {
+            return !Right() && Previous.RightButton == ButtonState.Pressed;
         }
 
         public static int MouseWheelDelta()
