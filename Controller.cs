@@ -35,8 +35,6 @@ namespace Namespace
             KInput.Initialize();
             MInput.Initialize();
             Render.Initialize(GraphicsDevice);
-
-            Camera.CenterOrigin();
         }
 
         protected override void Update(GameTime gameTime)

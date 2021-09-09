@@ -35,9 +35,9 @@ You don't need to touch the camera and can remove it outright if you don't want 
 By default the camera is centered around the top left corner. To center it, set its position to the screen center and run `Camera.CenterOrigin()`
 
 ## Persistence.cs
-Basic wrapper around `XmlSerializer` and `BinarySerializer`.
+Basic wrapper around `XmlSerializer` and `BinarySerializer` and saving and loading them to disk using `File.IO`. This is very basic and should only be used for savedata. Rework pending.
 
 # Credits
 This repo is partly based on the work of Maddy Thorson and the (formerly) open source MonoGame game engine `Monocle`. Mainly `Persistence.cs` (`SaveLoad.cs` in Monocle), `Graphic.cs` (`MTexture.cs` in Monocle), `Calc.cs` and `Render.cs` were taken from Monocle and edited wherever it was necessary to make them work standalone. `Controller.cs`, `KInput.cs` and `MInput.cs` were written by me.
 
-Monocle, and this project, are licensed under the MIT license. Because the monocle repository is inaccessible to me anymore I don't have access to the original license.
+Monocle, and this project, are licensed under the MIT license. Because the monocle repository has been privated I don't have access to the original license.
