@@ -23,9 +23,16 @@ Wrapper around the `Texture2D` class. Make dealing with textures much easier and
 
 ## Render.cs
 Main rendering class. Implements primitive rendering and controls the SpriteBatch instance. Uses `Graphic.cs` and `Calc.cs` to construct, rectangles, circles and other useful shapes.
+Also has fun functionality for rendering basic graphs or even splines!
 
 ## MInput.cs and KInput.cs
 Wrapper around the `KeyboardState` and `MouseState` structs. Basic key checking methods.
+
+## Camera.cs
+A Wrapper around a 3x3 Matrix. This transformation matrix is intended to transform the screen through translation, rotation and scale.
+For the actual rendering process it gets multiplied by the `Controller.ScreenMatrix` which can act as a global scale.
+You don't need to touch the camera and can remove it outright if you don't want to use it, but occasionally for translation it is very useful (i.e. border around your game without having to displace everything by 5 pixels).
+By default the camera is centered around the top left corner. To center it, set its position to the screen center and run `Camera.CenterOrigin()`
 
 ## Persistence.cs
 Basic wrapper around `XmlSerializer` and `BinarySerializer`.
