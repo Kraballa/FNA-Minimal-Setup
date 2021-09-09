@@ -7,6 +7,9 @@ namespace Namespace
 {
     public class Controller : Game
     {
+        public const int Width = 1280;
+        public const int Height = 720;
+
         public static Random Random = new Random();
 
         public static Controller Instance;
@@ -23,8 +26,8 @@ namespace Namespace
         protected override void Initialize()
         {
             base.Initialize();
-            Graphics.PreferredBackBufferWidth = 1280;
-            Graphics.PreferredBackBufferHeight = 720;
+            Graphics.PreferredBackBufferWidth = Width;
+            Graphics.PreferredBackBufferHeight = Height;
             Graphics.ApplyChanges();
 
             KInput.Initialize();
