@@ -134,6 +134,11 @@ namespace Namespace
 
         #region Rect
 
+        public static void Rect(float x, float y, float radius, Color c)
+        {
+            Rect(x - radius, y - radius, radius * 2, radius * 2, c);
+        }
+
         public static void Rect(float x, float y, float width, float height, Color color)
         {
             rect.X = (int)x;
@@ -157,6 +162,11 @@ namespace Namespace
         #endregion
 
         #region Hollow Rect
+
+        public static void HollowRect(float x, float y, float radius, Color c)
+        {
+            HollowRect(x - radius, y - radius, radius * 2, radius * 2, c);
+        }
 
         public static void HollowRect(float x, float y, float width, float height, Color color)
         {
@@ -387,7 +397,7 @@ namespace Namespace
 
         public static void Begin(Effect effect = null)
         {
-            SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, effect);
+            SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, effect, Controller.Instance.ScreenMatrix * Controller.Instance.Camera.Matrix);
         }
 
         public static void End()

@@ -7,9 +7,13 @@ namespace Namespace
 {
     public class Controller : Game
     {
-        public static Random Random = new Random();
+        public const int Width = 1280;
+        public const int Height = 720;
 
         public static Controller Instance;
+
+        public Matrix ScreenMatrix = Matrix.Identity;
+        public Camera Camera;
 
         private GraphicsDeviceManager Graphics;
 
@@ -18,18 +22,21 @@ namespace Namespace
             Instance = this;
             IsMouseVisible = true;
             Graphics = new GraphicsDeviceManager(this);
+            Camera = new Camera();
         }
 
         protected override void Initialize()
         {
             base.Initialize();
-            Graphics.PreferredBackBufferWidth = 1280;
-            Graphics.PreferredBackBufferHeight = 720;
+            Graphics.PreferredBackBufferWidth = Width;
+            Graphics.PreferredBackBufferHeight = Height;
             Graphics.ApplyChanges();
 
             KInput.Initialize();
             MInput.Initialize();
             Render.Initialize(GraphicsDevice);
+
+            Camera.CenterOrigin();
         }
 
         protected override void Update(GameTime gameTime)

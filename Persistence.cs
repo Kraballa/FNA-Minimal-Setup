@@ -96,12 +96,12 @@ namespace Namespace
             if (File.Exists(filepath))
             {
                 if (debugUnsafe)
-                    return SaveLoad.DeserializeFromFile<T>(filepath, mode);
+                    return DeserializeFromFile<T>(filepath, mode);
                 else
                 {
                     try
                     {
-                        return SaveLoad.DeserializeFromFile<T>(filepath, mode);
+                        return DeserializeFromFile<T>(filepath, mode);
                     }
                     catch
                     {
@@ -125,14 +125,14 @@ namespace Namespace
                 if (debugUnsafe)
                 {
                     loadError = false;
-                    return SaveLoad.DeserializeFromFile<T>(filepath, mode);
+                    return DeserializeFromFile<T>(filepath, mode);
                 }
                 else
                 {
                     try
                     {
                         loadError = false;
-                        return SaveLoad.DeserializeFromFile<T>(filepath, mode);
+                        return DeserializeFromFile<T>(filepath, mode);
                     }
                     catch
                     {

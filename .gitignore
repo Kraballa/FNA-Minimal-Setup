@@ -2,5 +2,7 @@
 # Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
 ################################################################################
 
-/.vs/repo/v16
-/.vs
+/bin/Debug/netcoreapp3.1
+/obj
+/Program.cs
+/MinimalSetup.csproj
