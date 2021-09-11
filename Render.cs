@@ -139,6 +139,11 @@ namespace Namespace
             Rect(x - radius, y - radius, radius * 2, radius * 2, c);
         }
 
+        public static void Rect(Vector2 pos, float radius, Color c)
+        {
+            Rect(pos.X - radius, pos.Y - radius, radius * 2, radius * 2, c);
+        }
+
         public static void Rect(float x, float y, float width, float height, Color color)
         {
             rect.X = (int)x;
@@ -166,6 +171,11 @@ namespace Namespace
         public static void HollowRect(float x, float y, float radius, Color c)
         {
             HollowRect(x - radius, y - radius, radius * 2, radius * 2, c);
+        }
+
+        public static void HollowRect(Vector2 pos, float radius, Color c)
+        {
+            HollowRect(pos.X - radius, pos.Y - radius, radius * 2, radius * 2, c);
         }
 
         public static void HollowRect(float x, float y, float width, float height, Color color)
@@ -358,39 +368,14 @@ namespace Namespace
 
         public static void Spline(Vector2[] points, float width, Color color, float resolution = 0.03f)
         {
-            Vector2 prev = GetSplinePoint(points, 0);
+            Vector2 prev = Calc.GetSplinePoint(points, 0);
 
             for (float t = resolution; t < points.Length - 3f; t += resolution)
             {
-                Vector2 next = GetSplinePoint(points, t);
+                Vector2 next = Calc.GetSplinePoint(points, t);
                 Line(prev, next, color, width);
                 prev = next;
             }
-        }
-
-        private static Vector2 GetSplinePoint(Vector2[] points, float t)
-        {
-            int p0, p1, p2, p3;
-
-            p1 = (int)t + 1;
-            p2 = p1 + 1;
-            p3 = p2 + 1;
-            p0 = p1 - 1;
-
-            t = t - (int)t;
-
-            float tt = t * t;
-            float ttt = tt * t;
-
-            float q1 = -ttt + 2f * tt - t;
-            float q2 = 3f * ttt - 5f * tt + 2f;
-            float q3 = -3 * ttt + 4f * tt + t;
-            float q4 = ttt - tt;
-
-            float tx = points[p0].X * q1 + points[p1].X * q2 + points[p2].X * q3 + points[p3].X * q4;
-            float ty = points[p0].Y * q1 + points[p1].Y * q2 + points[p2].Y * q3 + points[p3].Y * q4;
-
-            return new Vector2(tx * 0.5f, ty * 0.5f);
         }
 
         #endregion

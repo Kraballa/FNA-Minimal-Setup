@@ -1545,6 +1545,31 @@ namespace Namespace
             return rect;
         }
 
+        public static Vector2 GetSplinePoint(Vector2[] points, float t)
+        {
+            int p0, p1, p2, p3;
+
+            p1 = (int)t + 1;
+            p2 = p1 + 1;
+            p3 = p2 + 1;
+            p0 = p1 - 1;
+
+            t = t - (int)t;
+
+            float tt = t * t;
+            float ttt = tt * t;
+
+            float q1 = -ttt + 2f * tt - t;
+            float q2 = 3f * ttt - 5f * tt + 2f;
+            float q3 = -3 * ttt + 4f * tt + t;
+            float q4 = ttt - tt;
+
+            float tx = points[p0].X * q1 + points[p1].X * q2 + points[p2].X * q3 + points[p3].X * q4;
+            float ty = points[p0].Y * q1 + points[p1].Y * q2 + points[p2].Y * q3 + points[p3].Y * q4;
+
+            return new Vector2(tx * 0.5f, ty * 0.5f);
+        }
+
         #region Extension Functions (Remove these for MonoGame)
 
         public static Vector2 ToVector2(this Point point)
