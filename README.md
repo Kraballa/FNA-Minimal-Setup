@@ -25,8 +25,9 @@ Wrapper around the `Texture2D` class. Make dealing with textures much easier and
 Main rendering class. Implements primitive rendering and controls the SpriteBatch instance. Uses `Graphic.cs` and `Calc.cs` to construct, rectangles, circles and other useful shapes.
 Also has fun functionality for rendering basic graphs or even splines!
 
-## MInput.cs and KInput.cs
-Wrapper around the `KeyboardState` and `MouseState` structs. Basic key checking methods.
+## MInput.cs, CInput.cs and KInput.cs
+Wrapper around the `KeyboardState`, `GamePadState` and `MouseState` structs. Basic key checking methods as well as some utility.
+There are plans for an improved VirtualInput system that can abstract over multiple keys for easy support of multiple input types.
 
 ## Camera.cs
 A Wrapper around a 3x3 Matrix. This transformation matrix is intended to transform the screen through translation, rotation and scale.

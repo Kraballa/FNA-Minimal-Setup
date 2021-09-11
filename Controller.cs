@@ -34,6 +34,7 @@ namespace Namespace
 
             KInput.Initialize();
             MInput.Initialize();
+            CInput.Initialize();
             Render.Initialize(GraphicsDevice);
         }
 
@@ -42,7 +43,7 @@ namespace Namespace
             base.Update(gameTime);
             KInput.Update();
             MInput.Update();
-
+            CInput.Update();
             //update your stuff here
         }
 
