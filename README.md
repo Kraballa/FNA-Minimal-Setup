@@ -1,4 +1,4 @@
-# FNA Minimal Setup
+# FNA Minimal Setup Version 2
 
 This is a collection of classes that aim to make it as easy as possible to start using FNA. It includes methods for drawing primitives, loading and rendering textures from file paths as well as keyboard and mouse input. It also features a simple persistence layer, allowing you to serialize objects to XML or binary.
 
