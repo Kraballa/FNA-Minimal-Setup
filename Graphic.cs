@@ -26,7 +26,6 @@ namespace Namespace
         public Graphic(Texture2D texture)
         {
             Texture = texture;
-            AtlasPath = null;
             ClipRect = new Rectangle(0, 0, Texture.Width, Texture.Height);
             DrawOffset = Vector2.Zero;
             Width = ClipRect.Width;
@@ -37,7 +36,6 @@ namespace Namespace
         public Graphic(Graphic parent, int x, int y, int width, int height)
         {
             Texture = parent.Texture;
-            AtlasPath = null;
 
             ClipRect = parent.GetRelativeRect(x, y, width, height);
             DrawOffset = new Vector2(-Math.Min(x - parent.DrawOffset.X, 0), -Math.Min(y - parent.DrawOffset.Y, 0));
@@ -52,22 +50,15 @@ namespace Namespace
 
         }
 
-        public Graphic(Graphic parent, string atlasPath, Rectangle clipRect, Vector2 drawOffset, int width, int height)
+        public Graphic(Graphic parent, Rectangle clipRect, Vector2 drawOffset, int width, int height)
         {
             Texture = parent.Texture;
-            AtlasPath = atlasPath;
 
             ClipRect = parent.GetRelativeRect(clipRect);
             DrawOffset = drawOffset;
             Width = width;
             Height = height;
             SetUtil();
-        }
-
-        public Graphic(Graphic parent, string atlasPath, Rectangle clipRect)
-            : this(parent, clipRect)
-        {
-            AtlasPath = atlasPath;
         }
 
         public Graphic(Texture2D texture, Vector2 drawOffset, int frameWidth, int frameHeight)
@@ -133,7 +124,6 @@ namespace Namespace
             else
             {
                 applyTo.Texture = Texture;
-                applyTo.AtlasPath = null;
 
                 applyTo.ClipRect = GetRelativeRect(x, y, width, height);
                 applyTo.DrawOffset = new Vector2(-Math.Min(x - DrawOffset.X, 0), -Math.Min(y - DrawOffset.Y, 0));
@@ -159,7 +149,6 @@ namespace Namespace
 
         public Texture2D Texture { get; private set; }
         public Rectangle ClipRect { get; private set; }
-        public string AtlasPath { get; private set; }
         public Vector2 DrawOffset { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
@@ -175,10 +164,7 @@ namespace Namespace
 
         public override string ToString()
         {
-            if (AtlasPath != null)
-                return AtlasPath;
-            else
-                return "MTexture [" + Texture.Width + " x " + Texture.Height + "]";
+            return "MTexture [" + Texture.Width + " x " + Texture.Height + "]";
         }
 
         public Rectangle GetRelativeRect(Rectangle rect)
