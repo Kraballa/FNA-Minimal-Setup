@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Namespace.Util;
 
 namespace Namespace
 {
@@ -41,7 +39,7 @@ namespace Namespace
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Util.Time.Update(gameTime);
+            Time.Update(gameTime);
             KInput.Update();
             MInput.Update();
             CInput.Update();

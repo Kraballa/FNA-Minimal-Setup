@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Namespace
+namespace Namespace.Util
 {
     /// <summary>
     /// Basic Keyboard input class that handles key presses.

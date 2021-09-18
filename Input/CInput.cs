@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Namespace
+namespace Namespace.Util
 {
     public static class CInput
     {

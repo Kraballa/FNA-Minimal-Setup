@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Namespace
+namespace Namespace.Util
 {
     /// <summary>
     /// Basic Mouse input class that handles mouse clicks and presses.
