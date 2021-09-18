@@ -41,6 +41,7 @@ namespace Namespace
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            Util.Time.Update(gameTime);
             KInput.Update();
             MInput.Update();
             CInput.Update();
