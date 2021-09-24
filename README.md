@@ -1,6 +1,6 @@
 # FNA Minimal Setup Version 2
 
-This is a collection of classes that aim to make it as easy as possible to start using FNA. It includes methods for drawing primitives, loading and rendering textures from file paths as well as keyboard and mouse input. It also features a simple persistence layer, allowing you to serialize objects to XML or binary.
+This is a collection of classes that aim to make it as easy as possible to start using FNA. It includes methods for drawing primitives, loading and rendering textures from file paths as well as keyboard and mouse input and a simple collision system. It also features a simple persistence layer, allowing you to serialize objects to XML or binary.
 
 I use these in all my projects.
 
@@ -11,6 +11,9 @@ I use these in all my projects.
 4. use `Controller.cs` as your main Game class.
 
 # Details:
+
+## Collision
+Contains primitives for collision as well as functions for checking if they collide.
 
 ## Controller.cs
 Implements `Game.cs` and provides an example on how to use the classes provided. 
@@ -39,6 +42,10 @@ By default the camera is centered around the top left corner. To center it, set 
 Basic wrapper around `XmlSerializer` and `BinarySerializer` and saving and loading them to disk using `File.IO`. This is very basic and should only be used for savedata. Rework pending.
 
 # Credits
-This repo is partly based on the work of Maddy Thorson and the (formerly) open source MonoGame game engine `Monocle`. Mainly `Persistence.cs` (`SaveLoad.cs` in Monocle), `Graphic.cs` (`MTexture.cs` in Monocle), `Camera.cs`, `Calc.cs` and `Render.cs` were taken from Monocle and edited wherever it was necessary to make them work standalone. `Controller.cs`, `KInput.cs` and `MInput.cs` were written by me.
+This repo is partly based on the work of Maddy Thorson and the (formerly) open source MonoGame game engine `Monocle`. 
+Mainly `Persistence.cs` (`SaveLoad.cs` in Monocle), `Graphic.cs` (`MTexture.cs` in Monocle), `Camera.cs`, `Calc.cs` and `Render.cs` were taken from Monocle and edited wherever it was necessary to make them work standalone. 
+RectangleF was taken from Nez2D, a 2D game engine for FNA and MonoGame. 
+The collision system, `Controller.cs`, `KInput.cs`, `CInput.cs` and `MInput.cs` were written by me.
 
-Monocle, and this project, are licensed under the MIT license. Because the monocle repository has been privated I don't have access to the original license.
+Monocle, Nez2D, and this project, are licensed under the MIT license. 
+Because the Monocle repository has been privated I don't have access to the original license.
