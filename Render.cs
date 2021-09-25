@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Namespace.Util;
 using System;
 
 namespace Namespace
@@ -13,7 +14,6 @@ namespace Namespace
 
         public static SpriteBatch SpriteBatch { get; set; }
 
-        public static SpriteFont Font { get; set; }
         public static float CharWidth;
         public static float CharHeight;
 
@@ -210,7 +210,7 @@ namespace Namespace
 
         #endregion
 
-        #region Text
+        #region Spritefont Text
 
         public static void Text(SpriteFont font, string text, Vector2 position, Color color)
         {
@@ -316,6 +316,39 @@ namespace Namespace
 
         #endregion
 
+        #region Bitmap Text
+
+        public static void Text(BitmapFont font, string text, Vector2 position)
+        {
+            font.DrawString(text, Calc.Floor(position));
+        }
+
+        public static void Text(BitmapFont font, string text, Vector2 position, Color color)
+        {
+            font.DrawString(text, Calc.Floor(position), color);
+        }
+
+        public static void TextCentered(BitmapFont font, string text, Vector2 position)
+        {
+            Text(font, text, position - font.MeasureString(text) * .5f, Color.White);
+        }
+
+        public static void TextCentered(BitmapFont font, string text, Vector2 position, Color color)
+        {
+            Text(font, text, position - font.MeasureString(text) * .5f, color);
+        }
+
+        public static void OutlineTextCentered(BitmapFont font, string text, Vector2 position, Color color, Color outlineColor)
+        {
+            for (int i = -1; i < 2; i++)
+                for (int j = -1; j < 2; j++)
+                    if (i != 0 || j != 0)
+                        TextCentered(font, text, Calc.Floor(position) + new Vector2(i, j), outlineColor);
+            TextCentered(font, text, Calc.Floor(position), color);
+        }
+
+        #endregion
+
         #region Weird Stuff
 
         public static void Function(Func<float, float> func, Vector2 origin, int max, Color color)
@@ -378,7 +411,7 @@ namespace Namespace
 
         public static void Begin(Effect effect = null)
         {
-            SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, effect, Controller.Instance.ScreenMatrix * Controller.Instance.Camera.Matrix);
+            SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, effect, Controller.Instance.Camera.Matrix);
         }
 
         public static void End()
