@@ -49,9 +49,9 @@ namespace Namespace.Util
             }
         }
 
-        public void DrawChar(int chr, int x, int y)
+        public void DrawString(string text, Vector2 pos)
         {
-            CharacterMap[chr].Draw(new Vector2(x, y));
+            DrawString(text, (int)pos.X, (int)pos.Y);
         }
 
         public void DrawString(string text, int x, int y, Color color)
@@ -66,9 +66,22 @@ namespace Namespace.Util
             }
         }
 
-        public void DrawChar(int chr, int x, int y, Color color)
+        public void DrawString(string text, Vector2 pos, Color c)
         {
-            CharacterMap[chr].Draw(new Vector2(x, y), Vector2.Zero, color);
+            DrawString(text, (int)pos.X, (int)pos.Y, c);
+        }
+
+        public Vector2 MeasureString(string text)
+        {
+            string[] split = text.Split('\n');
+            int width = 0;
+            int height = CharHeight * split.Length;
+            for (int i = 0; i < split.Length; i++)
+            {
+                int other = split[i].Length * CharWidth;
+                width = other > width ? other : width;
+            }
+            return new Vector2(width, height);
         }
     }
 }
