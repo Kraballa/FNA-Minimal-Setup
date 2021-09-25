@@ -8,9 +8,9 @@ namespace Namespace.Util
     public static class Time
     {
         public static double Delta;
-        public static double DeltaF => (float)Delta;
+        public static float DeltaF => (float)Delta;
         public static double Total = 0;
-        public static double TotalF => (float)Total;
+        public static float TotalF => (float)Total;
 
         public static void Update(GameTime gameTime)
         {
