@@ -10,7 +10,6 @@ namespace Namespace
 
         public static Controller Instance;
 
-        public Matrix ScreenMatrix = Matrix.Identity;
         public Camera Camera;
 
         private GraphicsDeviceManager Graphics;
