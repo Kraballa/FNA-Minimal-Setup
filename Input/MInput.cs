@@ -16,6 +16,7 @@ namespace Namespace.Util
         public static int Y => State.Y;
         public static Point Position => new Point(State.X, State.Y);
         public static Vector2 PositionF => new Vector2(State.X, State.Y);
+        public static Vector2 WorldPosition => Controller.Instance.Camera.ScreenToCamera(new Vector2(State.X, State.Y));
 
         public static void Initialize()
         {
